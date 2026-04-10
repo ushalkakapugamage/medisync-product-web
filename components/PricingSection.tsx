@@ -67,16 +67,35 @@ export default function PricingSection() {
             return (
               <motion.div
                 key={plan.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 15,
+                  delay: index * 0.12,
+                }}
                 className={`bg-navy-700 rounded-2xl p-8 relative ${
                   plan.highlighted
-                    ? 'border-2 border-brand shadow-[0_0_40px_rgba(114,168,232,0.12)]'
+                    ? 'border-2 border-brand'
                     : 'border border-brand/10'
                 }`}
               >
+                {/* Glow pulse on highlighted card */}
+                {plan.highlighted && (
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        '0 0 20px rgba(114,168,232,0.1)',
+                        '0 0 40px rgba(114,168,232,0.25)',
+                        '0 0 20px rgba(114,168,232,0.1)',
+                      ],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    className="absolute inset-0 rounded-2xl pointer-events-none"
+                  />
+                )}
                 {plan.highlighted && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand text-navy-900 text-xs font-bold px-5 py-1 rounded-full">
                     Most popular
@@ -95,10 +114,10 @@ export default function PricingSection() {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={isAnnual ? 'annual' : 'monthly'}
-                      initial={{ opacity: 0, y: -8 }}
+                      initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.2 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.25 }}
                     >
                       {plan.monthlyPrice === 0 ? (
                         <span className="text-4xl font-display font-bold text-white">

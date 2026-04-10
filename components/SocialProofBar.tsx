@@ -33,10 +33,6 @@ export default function SocialProofBar() {
     )
   })
 
-  const separator = (
-    <span className="text-text-secondary/30 mx-4">·</span>
-  )
-
   const row = content.reduce<React.ReactNode[]>((acc, el, i) => {
     if (i > 0) acc.push(<span key={`sep-${i}`} className="text-text-secondary/30 mx-4">·</span>)
     acc.push(el)
@@ -44,8 +40,8 @@ export default function SocialProofBar() {
   }, [])
 
   return (
-    <div className="py-4 bg-navy-800 border-y border-brand/10 overflow-hidden">
-      <div className="flex animate-marquee w-max">
+    <div className="group py-4 bg-navy-800 border-y border-brand/10 overflow-hidden">
+      <div className="flex animate-marquee w-max group-hover:[animation-play-state:paused]">
         <div className="flex items-center gap-0 px-8">
           {row}
         </div>

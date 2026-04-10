@@ -1,5 +1,7 @@
 import { Sora, DM_Sans } from 'next/font/google'
 import './globals.css'
+import ScrollProgress from '@/components/ScrollProgress'
+import CustomCursor from '@/components/CustomCursor'
 import Navbar from '@/components/Navbar'
 
 const sora = Sora({
@@ -26,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sora.variable} ${dmSans.variable}`}>
       <body>
+        <ScrollProgress />
+        <CustomCursor />
         <Navbar />
         {children}
       </body>
