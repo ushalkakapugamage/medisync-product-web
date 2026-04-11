@@ -3,6 +3,8 @@ import './globals.css'
 import ScrollProgress from '@/components/ScrollProgress'
 import CustomCursor from '@/components/CustomCursor'
 import Navbar from '@/components/Navbar'
+import { PreorderProvider } from '@/context/PreorderContext'
+import PreorderDrawer from '@/components/PreorderDrawer'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -28,10 +30,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sora.variable} ${dmSans.variable}`}>
       <body>
-        <ScrollProgress />
-        <CustomCursor />
-        <Navbar />
-        {children}
+        <PreorderProvider>
+          <ScrollProgress />
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <PreorderDrawer />
+        </PreorderProvider>
       </body>
     </html>
   )

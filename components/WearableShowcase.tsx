@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Zap, Heart, Wifi, Battery } from 'lucide-react'
+import PreorderButton from '@/components/PreorderButton'
 
 const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   x: (i * 137.5) % 100,
@@ -159,6 +160,11 @@ export default function WearableShowcase() {
                 {spec}
               </span>
             ))}
+          </div>
+          <div className="mt-8">
+            <PreorderButton variant="filled" size="lg">
+              Preorder the MediSync Band
+            </PreorderButton>
           </div>
         </motion.div>
 

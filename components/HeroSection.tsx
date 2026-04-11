@@ -11,6 +11,7 @@ import {
 import { Pill, Clock } from 'lucide-react'
 import { TRUST_STATS } from '@/lib/constants'
 import Button from '@/components/ui/Button'
+import PreorderButton from '@/components/PreorderButton'
 
 const WORDS = ['Your', 'health,', 'always', 'on', 'time.']
 
@@ -146,7 +147,14 @@ export default function HeroSection() {
               <Button variant="ghost" size="lg" href="#how-it-works">
                 See how it works
               </Button>
+              <PreorderButton variant="outline" size="lg">
+                Preorder &amp; Save 30%
+              </PreorderButton>
             </div>
+            <p className="text-accent-green text-xs mt-3 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse-dot" />
+              Limited early-bird pricing — only 200 spots left
+            </p>
 
             {/* Trust stats with counter animation */}
             <div className="flex gap-6 mt-10 flex-wrap items-center">

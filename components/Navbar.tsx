@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
-import Button from '@/components/ui/Button'
+import PreorderButton from '@/components/PreorderButton'
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false)
@@ -117,10 +117,14 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.8 }}
+              className="flex items-center gap-2"
             >
-              <Button variant="filled" size="sm" href="#download">
-                Download
-              </Button>
+              <span className="bg-accent-green/20 text-accent-green text-[10px] font-bold px-2 py-0.5 rounded-full">
+                EARLY ACCESS
+              </span>
+              <PreorderButton variant="filled" size="sm">
+                Preorder Now
+              </PreorderButton>
             </motion.div>
           </div>
 
@@ -160,9 +164,9 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <Button variant="filled" size="sm" href="#download">
-                Download
-              </Button>
+              <PreorderButton variant="filled" size="sm">
+                Preorder Now
+              </PreorderButton>
             </div>
           </motion.div>
         )}

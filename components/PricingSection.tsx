@@ -11,6 +11,7 @@ import {
 } from '@/lib/constants'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
+import PreorderButton from '@/components/PreorderButton'
 
 /* ── Billing toggle (shared between B2C and B2B) ── */
 function BillingToggle({
@@ -625,9 +626,9 @@ function B2BContent({
             >
               Book a demo
             </Button>
-            <Button variant="ghost" href="#">
-              Download brochure
-            </Button>
+            <PreorderButton mode="b2b" variant="outline">
+              Preorder for facility
+            </PreorderButton>
           </div>
         </div>
       </div>

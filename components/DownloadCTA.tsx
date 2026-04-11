@@ -1,3 +1,7 @@
+'use client'
+
+import PreorderButton from '@/components/PreorderButton'
+
 export default function DownloadCTA() {
   return (
     <section id="download" className="py-32 relative overflow-hidden">
@@ -60,6 +64,15 @@ export default function DownloadCTA() {
         <p className="text-text-secondary text-sm mt-6">
           Free to start · No credit card needed
         </p>
+
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <PreorderButton variant="outline" size="lg">
+            Or preorder the MediSync Band
+          </PreorderButton>
+          <p className="text-text-secondary text-xs">
+            Early-bird pricing · 30% off · Limited availability
+          </p>
+        </div>
       </div>
     </section>
   )
